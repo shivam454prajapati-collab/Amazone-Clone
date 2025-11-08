@@ -1,3 +1,3 @@
 # Amazone-Clone
 First Repository
-Author-SHivam Prajapati
+Author-Shivam Prajapati
