@@ -1,5 +1,8 @@
 import {cart} from '../data/cart.js' ; //so here .. used for when file is outside from that current folder using this we can access that variable
 // besically we used module for accesing the variable without uisng script tag because when we use script we can not use variable from that file to another
+
+import {products} from '../data/products.js';
+
 let productsHTML='';
 
 products.forEach((product)=> {
