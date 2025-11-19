@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js' ; //so here .. used for when file is outside from that current folder using this we can access that variable
+import {cart, addToCart} from '../data/cart.js' ; //so here .. used for when file is outside from that current folder using this we can access that variable
 // besically we used module for accesing the variable without uisng script tag because when we use script we can not use variable from that file to another
 
 import {products} from '../data/products.js';
@@ -67,37 +67,25 @@ products.forEach((product)=> {
 
 document.querySelector('.js-products-grid').innerHTML=productsHTML;
 
-document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
-    button.addEventListener('click',()=>{
-      const productId=  button.dataset.productId;            //data set properties will give the all the data attribute to attach that button , & this is converted from kebab case to camel case
-        
-      let matchingItem;
 
-      cart.forEach((item)=>{
-            if (productId===item.productId){
-                matchingItem=item;
-
-            }
-        })
-
-        if(matchingItem){
-            matchingItem.quantity+=1;
-        }else{
-     
-      cart.push({
-        productId:productId,
-        quantity:1
-      })
-    }
-      console.log(cart);
-
+function updateCartQuantity(){
     let cartQuantity=0;
 
-    cart.forEach((item)=>{
-        cartQuantity += item.quantity;
+    cart.forEach((cartItem)=>{
+        cartQuantity += cartItem.quantity;
     })
 
     document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+
+}
+document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
+    button.addEventListener('click',()=>{
+      const productId=  button.dataset.productId;            //data set properties will give the all the data attribute to attach that button , & this is converted from kebab case to camel case
+        addToCart(productId);
+      updateCartQuantity();
+      console.log(cart);
+
+    
 
         });
 
