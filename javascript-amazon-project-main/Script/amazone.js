@@ -2,7 +2,7 @@ import {cart, addToCart} from '../data/cart.js' ; //so here .. used for when fil
 // besically we used module for accesing the variable without uisng script tag because when we use script we can not use variable from that file to another
 
 import {products} from '../data/products.js';
-
+import { formatCurrency } from './utils/money.js';
 let productsHTML='';
 
 products.forEach((product)=> {
@@ -26,7 +26,7 @@ products.forEach((product)=> {
                 </div>
 
                 <div class="product-price">
-                    ${(product.priceCents/100).toFixed(2)}
+                    ${formatCurrency(product.priceCents)}
                 </div>
 
                 <div class="product-quantity-container">
