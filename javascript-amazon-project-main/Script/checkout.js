@@ -1,7 +1,14 @@
 import {cart, removeFromCart} from '../data/cart.js';
 import { products } from '../data/products.js';
-import { formatCurrency } from './utils/money.js';
+import { formatCurrency } from './utils/money.js';  //named import we have to use curly braces
+import { hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';  // this is esm module import from direct internet link we dont need write this in script tag in html file we will use it directly here
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';  // this is esm module import from direct internet link & this is also deafault export we can use it when we only want to export 1 thing.
 
+
+hello();
+const today=(dayjs());
+const deliveryDate= today.add(7,'day');
+console.log(deliveryDate.format('dddd,MMMM D'));
 
 let cartSummaryHTML='';
 
